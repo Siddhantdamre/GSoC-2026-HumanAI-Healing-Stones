@@ -17,6 +17,8 @@ This project explores AI-assisted reconstruction of fragmented cultural artifact
 | `src/train_model.py` | PyTorch training loop for point-cloud registration. |
 | `src/align_fragments.py` | Hybrid RANSAC + ICP geometric alignment path. |
 | `models/training_loss_curve.png` | Evidence of training behavior and experiment tracking. |
+| `src/generate_demo_alignment.py` | Dependency-free synthetic fixture generator for the live browser demo. |
+| `docs/assets/demo_alignment.json` | Small generated point-cloud fixture used by the GitHub Pages viewer. |
 
 ## Problem
 
@@ -67,8 +69,35 @@ flowchart LR
 Install the main dependencies:
 
 ```bash
-pip install open3d torch numpy matplotlib
+pip install -r requirements.txt
 ```
+
+### Lightweight browser demo
+
+Generate the tiny synthetic alignment fixture used by the live demo:
+
+```bash
+python src/generate_demo_alignment.py
+```
+
+This writes:
+
+- `docs/assets/demo_alignment.json` for the browser viewer.
+- `examples/demo_alignment_report.json` for the compact metrics report.
+
+Serve the static demo locally:
+
+```bash
+python -m http.server 8080 -d docs
+```
+
+Then open:
+
+```text
+http://localhost:8080
+```
+
+### Full scan pipeline
 
 Run the pipeline on Windows:
 
@@ -84,13 +113,13 @@ python src/view_assembly.py
 
 ## Current Demo State
 
-The GitHub Pages surface explains the pipeline. The next stronger demo is a Three.js viewer with before/after fragment alignment and downloadable sample metrics.
+The GitHub Pages surface now includes a data-backed synthetic fragment viewer with scrambled, aligned, and target states. It is intentionally lightweight so reviewers can inspect the reconstruction idea before installing Open3D or downloading large scans.
 
 ## Roadmap
 
-- Add a browser-based 3D viewer for sample fragments.
+- Replace the synthetic browser fixture with exported PLY-derived model outputs.
 - Add screenshots/GIFs of the reconstruction process.
-- Add a small synthetic sample dataset for reproducible review.
+- Add a small PLY sample dataset for reproducible review.
 - Add a notebook that runs a tiny end-to-end pipeline without large scans.
 
 ## License

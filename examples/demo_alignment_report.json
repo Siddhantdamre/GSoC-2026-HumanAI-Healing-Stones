@@ -1,0 +1,67 @@
+{
+  "summary": {
+    "name": "Healing Stones synthetic alignment fixture",
+    "description": "Small deterministic artifact shards for the browser demo.",
+    "fragment_count": 3,
+    "point_count": 252,
+    "units": "normalized artifact coordinates"
+  },
+  "metrics": {
+    "mean_residual_before": 0.9823,
+    "mean_residual_after": 0.0074,
+    "improvement_ratio": 132.25
+  },
+  "fragments": [
+    {
+      "id": "left_shard",
+      "label": "Left fracture shard",
+      "metrics": {
+        "rms_before": 1.2431,
+        "rms_after": 0.0059,
+        "point_count": 84
+      },
+      "estimated_transform": {
+        "rotation_z_degrees": 32.0,
+        "translation": [
+          0.92,
+          -0.52,
+          -0.0
+        ]
+      }
+    },
+    {
+      "id": "center_shard",
+      "label": "Center relief shard",
+      "metrics": {
+        "rms_before": 0.5584,
+        "rms_after": 0.0074,
+        "point_count": 84
+      },
+      "estimated_transform": {
+        "rotation_z_degrees": -18.0,
+        "translation": [
+          -0.24,
+          0.44,
+          -0.0
+        ]
+      }
+    },
+    {
+      "id": "right_shard",
+      "label": "Right edge shard",
+      "metrics": {
+        "rms_before": 1.1454,
+        "rms_after": 0.0089,
+        "point_count": 84
+      },
+      "estimated_transform": {
+        "rotation_z_degrees": -41.0,
+        "translation": [
+          -0.88,
+          -0.38,
+          -0.0
+        ]
+      }
+    }
+  ]
+}
